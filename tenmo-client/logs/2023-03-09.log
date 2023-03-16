@@ -1,0 +1,2 @@
+2023-03-09T09:53:04.8556105 I/O error on POST request for "http://localhost:8080/register": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+2023-03-09T13:42:36.9229699 500 : [{"timestamp":"2023-03-09T18:42:36.834+00:00","status":500,"error":"Internal Server Error","message":"PreparedStatementCallback; SQL [INSERT INTO tenmo_user (username, password_hash) VALUES (?, ?) RETU... (534 bytes)]

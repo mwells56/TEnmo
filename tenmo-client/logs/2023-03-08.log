@@ -1,0 +1,2 @@
+2023-03-08T17:14:58.7474606 400 : [{"timestamp":"2023-03-08T22:14:58.710+00:00","status":400,"error":"Bad Request","message":"User registration failed.","path":"/register"}]
+2023-03-08T17:15:12.6806083 500 : [{"timestamp":"2023-03-08T22:15:12.678+00:00","status":500,"error":"Internal Server Error","message":"PreparedStatementCallback; SQL [INSERT INTO tenmo_user (username, password_hash) VALUES (?, ?) RETU... (534 bytes)]

@@ -1,0 +1,5 @@
+2023-03-11T14:43:21.6163825 500 : [{"timestamp":"2023-03-11T19:43:21.578+00:00","status":500,"error":"Internal Server Error","message":"PreparedStatementCallback; SQL [INSERT INTO tenmo_user (username, password_hash) VALUES (?, ?) RETU... (534 bytes)]
+2023-03-11T14:43:31.8188475 500 : [{"timestamp":"2023-03-11T19:43:31.816+00:00","status":500,"error":"Internal Server Error","message":"PreparedStatementCallback; SQL [INSERT INTO tenmo_user (username, password_hash) VALUES (?, ?) RETU... (534 bytes)]
+2023-03-11T15:55:03.5087874 500 : [{"timestamp":"2023-03-11T20:55:03.496+00:00","status":500,"error":"Internal Server Error","message":"PreparedStatementCallback; SQL [INSERT INTO transfer (transfer_type_id, transfer_status_id, account... (657 bytes)]
+2023-03-11T17:09:12.3528713 401 : [no body]
+2023-03-11T18:33:48.8281433 404 : [{"timestamp":"2023-03-11T23:33:48.811+00:00","status":404,"error":"Not Found","message":"No message available","path":"/transfer/getPending"}]
