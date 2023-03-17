@@ -89,7 +89,8 @@ public class App {
             } else if (menuSelection == 6) {
                 requestBucks();
             } else if (menuSelection == 0) {
-                continue;
+                currentUser = null;
+                run();
             } else {
                 System.out.println("Invalid Selection");
             }
@@ -188,12 +189,18 @@ public class App {
     }
 
     public void approveOrDenyTransfer(int transferId) {
+        TransferDetails transferDetails = transferService.transferDetails(transferId);
         consoleService.printApproveOrDenyMessage();
         int approveOrDeny = consoleService.promptForInt("Please choose an option: ");
         while (approveOrDeny != 0) {
             if (approveOrDeny == 1) {
-                transferService.approveTransfer(transferId);
-                approveOrDeny = 0;
+                if (transferDetails.getAmount().compareTo(accountService.getBalance()) < 0) {
+                    transferService.approveTransfer(transferId);
+                    approveOrDeny = 0;
+                } else {
+                    System.out.println("You do not have enough money in your account to approve this transfer.");
+                    approveOrDeny = consoleService.promptForInt("Please select a different option: ");
+                }
             } else if (approveOrDeny == 2) {
                 transferService.rejectTransfer(transferId);
                 approveOrDeny = 0;
@@ -221,11 +228,15 @@ public class App {
             while (userToId != 0) {
                 if (userIds.contains(userToId)) {
                     BigDecimal amount = consoleService.promptForBigDecimal("\nEnter amount: $");
+                    if (amount.compareTo(accountService.getBalance()) < 0) {
+                        Transfer transfer = new Transfer(amount, currentUser.getUser().getId(), userToId);
 
-                    Transfer transfer = new Transfer(amount, currentUser.getUser().getId(), userToId);
+                        transferService.sendMoney(transfer);
+                        userToId = 0;
+                    } else {
+                        System.out.println("You do not have enough money in your account to make this transfer.");
+                    }
 
-                    transferService.sendMoney(transfer);
-                    userToId = 0;
                 } else {
                     userToId = consoleService.promptForInt("Please select a valid user (0 to cancel): ");
                 }
